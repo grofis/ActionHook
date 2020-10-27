@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-     "baiduPush": "node utils/baiduPush.js https://www.grofis.com && bash baiduPush.sh"
+    "baiduPush": "node utils/baiduPush.js https://www.grofis.com && bash baiduPush.sh"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/grofis/ActionHook/issues"
   },
-  "homepage": "https://github.com/grofis/ActionHook#readme"
+  "homepage": "https://github.com/grofis/ActionHook#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "gray-matter": "^4.0.2"
+  }
 }

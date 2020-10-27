@@ -4,6 +4,6 @@
 set -e
 
 # 百度链接推送
-curl -H 'Content-Type:text/plain' --data-binary @urls.txt "https://data.zz.baidu.com/urls?site=www.grofis.com&token=DVNQxLcTWdvT9SCQ"
+curl -H 'Content-Type:text/plain' --data-binary @urls.txt "http://data.zz.baidu.com/urls?site=www.grofis.com&token=DVNQxLcTWdvT9SCQ"
 
 rm -rf urls.txt # 灭迹
