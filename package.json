@@ -1,0 +1,26 @@
+{
+  "name": "actionhook",
+  "version": "1.0.0",
+  "description": "code for github actions and web requests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+     "baiduPush": "node utils/baiduPush.js https://grofis.com && bash baiduPush.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grofis/ActionHook.git"
+  },
+  "keywords": [
+    "githubaction",
+    "nodejs",
+    "webrequest",
+    "http"
+  ],
+  "author": "grofis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grofis/ActionHook/issues"
+  },
+  "homepage": "https://github.com/grofis/ActionHook#readme"
+}
