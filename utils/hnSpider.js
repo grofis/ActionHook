@@ -42,8 +42,8 @@ function formateData(arr){
            obj.text = `**[${d.text}](${url})**` 
            obj.title = `${title}`
            obj.author = `[${author}](https://news.ycombinator.com/user?id=${author})`
-           obj.created_at = `${timeago.format(created_at)}`
-           obj.num_comments = `[${num_comments} comments](https://news.ycombinator.com/item?id=${objectID})`
+           obj.created_at = `${timeago.format(created_at, 'zh_CN')}`
+           // obj.num_comments = `[${num_comments} comments](https://news.ycombinator.com/item?id=${objectID})`
            titles.push(i+'.	'+`${title}`)
 
 
@@ -53,7 +53,7 @@ function formateData(arr){
              setTimeout(function(){
                 let contents= arr.map((des, j) => {
                 // console.log(j+" "+des.text+`\r\n`)
-                return (`${j + 1}. ${des.text}\r\n ${des.title} \r\n ${des.points} points by ${des.author} ${des.created_at} | ${des.num_comments} \r\n`)
+                return (`${j + 1}. ${des.text}\r\n ${des.title} \r\n 好奇指数 ${des.points}点  由 ${des.author} ${des.created_at}发布 | 获得 ${des.num_comments}评论 \r\n`)
               }).join('')
              file.writeData(contents)
              file.logData(time.getDate()+'==>\r\n'+titles.join('\r\n'))
