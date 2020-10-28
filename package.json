@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "baiduPush": "node utils/baiduPush.js https://www.grofis.com && bash baiduPush.sh"
+    "baiduPush": "node utils/baiduPush.js https://www.grofis.com"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,12 @@
   },
   "homepage": "https://github.com/grofis/ActionHook#readme",
   "dependencies": {
+    "axios": "^0.21.0",
     "chalk": "^4.1.0",
-    "gray-matter": "^4.0.2"
+    "cheerio": "^1.0.0-rc.3",
+    "google-translate-api": "^2.3.0",
+    "gray-matter": "^4.0.2",
+    "moment": "^2.29.1",
+    "timeago.js": "^4.0.2"
   }
 }
