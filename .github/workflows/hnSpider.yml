@@ -5,7 +5,7 @@ name: hnSpider
 # 两种触发方式：一、push代码，二、每天国际标准时间23点（北京时间+8即早上7点）运行
 on:
   schedule:
-    - cron: '42 23,0 * * *' #在每天第 4 和第 5 小时的第 2 和第 10 分钟运行。' # 每5分钟一次，测试用
+    - cron: '*/5 * * * *' #在每天第 4 和第 5 小时的第 2 和第 10 分钟运行。' # 每5分钟一次，测试用
     # - cron: '0 23 * * *' # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events-schedule
 
 # on:
