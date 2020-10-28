@@ -2,11 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const time = require('./time');
 
-const name = time.getDate()+'.md'
+const name = './docs/'+time.getDate()+'.md'
 
 
 function writeData (data) {
-  let name = time.getDate()+'.md'
+  console.log("data==>"+data)
   fs.writeFile(name, data,'utf8',function(error){
     if(error){
         console.log(error);
@@ -19,10 +19,10 @@ function writeData (data) {
 }
 
 function logData (data) {
-  let name = time.getDate()+'.log'
+  let name = './logs/'+time.getDate()+'.log'
   fs.exists(name, function(exists) {
   if(!exists){
-  	writeData('')
+  	fs.writeFile(name, data,'utf8',function(error){})
   }
   fs.appendFile(name, data,'utf8',function(error){
     if(error){
@@ -41,7 +41,7 @@ exports.appendData = function (data) {
   fs.exists(name, function(exists) {
   console.log(exists ? "创建成功" : "创建失败");
   if(!exists){
-  	writeData('')
+  	fs.writeFile(name, data,'utf8',function(error){})
   }
   fs.appendFile(name, data,'utf8',function(error){
     if(error){
