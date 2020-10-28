@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "baiduPush": "node utils/baiduPush.js https://www.grofis.com"
+    "baiduPush": "node utils/baiduPush.js https://www.grofis.com",
+    "hnSpider":"node utils/hnSpider.js"
   },
   "repository": {
     "type": "git",
