@@ -3,7 +3,11 @@
 name: hnSpider
 
 # 两种触发方式：一、push代码，二、每天国际标准时间23点（北京时间+8即早上7点）运行
-on: push
+on: 
+  push
+  schedule:
+    - cron: '* */1 * * *' # 每5分钟一次，测试用
+
 
 jobs:
   bot:
