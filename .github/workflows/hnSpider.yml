@@ -19,3 +19,6 @@ jobs:
         uses: actions/checkout@v1
       - name: 'Run hnSpider'  # 步骤二，执行sh命令文件
         run: npm install && npm run hnSpider # 运行目录是仓库根目录
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: hacker new dayly.
