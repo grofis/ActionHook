@@ -1,0 +1,6 @@
+*.log
+node_modules
+.idea
+.settings
+.classpath
+.project
