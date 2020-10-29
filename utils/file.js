@@ -6,7 +6,7 @@ const name = './docs/'+time.getDate()+'.md'
 
 
 function writeData (data) {
-  console.log("data==>"+data)
+  console.log("write data==>\r\n"+data)
   fs.writeFile(name, data,'utf8',function(error){
     if(error){
         console.log(error);
@@ -19,6 +19,7 @@ function writeData (data) {
 }
 
 function logData (data) {
+  console.log("log data==>\r\n"+data)
   let name = './logs/'+time.getDate()+'.log'
   fs.exists(name, function(exists) {
   if(!exists){
@@ -39,7 +40,6 @@ exports.logData = logData
 
 exports.appendData = function (data) {
   fs.exists(name, function(exists) {
-  console.log(exists ? "创建成功" : "创建失败");
   if(!exists){
   	fs.writeFile(name, data,'utf8',function(error){})
   }

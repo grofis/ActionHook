@@ -11,8 +11,8 @@ main()
  * 主体函数
  */
 function main () {
-	file.writeData('contents')
-    file.logData('time')
+  // file.writeData('contents')
+  // file.logData('time')
 	
   let endTime = Math.round(new Date().getTime() / 1000) - (12 * 60 * 60)
   // 1 hour before start of the date (save missed posts)
@@ -23,12 +23,9 @@ function main () {
   let res = axios.get(url).then(function (res) {   
     let top10Objs = res.data.hits.slice(0, 10)
     formateData(top10Objs)  
-    //  file.writeData(contents)
   }).catch(function (error) {
     console.log(error)
   })
-  
-  
 }
 
 
