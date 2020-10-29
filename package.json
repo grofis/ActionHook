@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "baiduPush": "node utils/baiduPush.js https://www.grofis.com && bash baiduPush.sh",
-    "hnSpider":"node utils/hnSpider.js"
+    "hnSpider": "node utils/hnSpider.js"
   },
   "repository": {
     "type": "git",
