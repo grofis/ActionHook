@@ -23,8 +23,7 @@ jobs:
         run: npm install && npm run hnSpider # 运行目录是仓库根目录
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          branch: product
           commit_message: hacker new dayly.
-          tagging_message: 'v1.0.0'
+          tagging_message: 'v2.0.0'
           commit_user_name: My GitHub Actions Bot # defaults to "GitHub Actions"
           commit_user_email: 1216226589@qq.com # defaults to "actions@github.com"
