@@ -14,12 +14,22 @@ jobs:
   bot:
     runs-on: ubuntu-latest # 运行环境为最新版的Ubuntu
     steps:
+      
       - name: 'Checkout codes' # 步骤一，获取仓库代码
         uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
       - name: 'Run hnSpider'  # 步骤二，执行sh命令文件
-        run: npm install && npm run hnSpider # 运行目录是仓库根目录      
-        env:
-          clientSecret: ${{ secrets.clientSecret }}
-          privateKey: ${{ secrets.privateKey }}
+        run: npm install && npm run hnSpider # 运行目录是仓库根目录
+        
+      - name: setup git config
+        run: |
+          # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
+      - name: commit
+        run: |
+          # Stage the file, commit and push
+          git commit -m "new date commit"
+          git push origin master
