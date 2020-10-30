@@ -27,6 +27,8 @@
   },
   "homepage": "https://github.com/grofis/ActionHook#readme",
   "dependencies": {
+    "@octokit/auth-app": "^2.10.0",
+    "@octokit/core": "^3.2.0",
     "axios": "^0.21.0",
     "chalk": "^4.1.0",
     "cheerio": "^1.0.0-rc.3",

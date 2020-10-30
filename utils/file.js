@@ -19,12 +19,13 @@ function writeData(data) {
 
 function logData(data) {
   console.log(`log data==>\r\n${data}`);
-  const name = `./logs/${time.getDate()}.log`;
-  fs.exists(name, (exists) => {
+  const fileName = `./logs/${time.getDate()}.log`;
+  fs.exists(fileName, (exists) => {
     if (!exists) {
-  	fs.writeFile(name, data, 'utf8', (error) => {});
+  	  fs.writeFile(fileName, data, 'utf8', (error) => {
+  	  });
     }
-    fs.appendFile(name, data, 'utf8', (error) => {
+    fs.appendFile(fileName, data, 'utf8', (error) => {
       if (error) {
         console.log(error);
         return false;
@@ -39,7 +40,7 @@ exports.logData = logData;
 exports.appendData = function (data) {
   fs.exists(name, (exists) => {
     if (!exists) {
-  	fs.writeFile(name, data, 'utf8', (error) => {});
+  	  fs.writeFile(name, data, 'utf8', (error) => {});
     }
     fs.appendFile(name, data, 'utf8', (error) => {
       if (error) {

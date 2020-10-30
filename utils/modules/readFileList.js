@@ -3,6 +3,7 @@
  */
 const fs = require('fs'); // 文件模块
 const path = require('path');
+const http = require('https');
 // 路径模块
 const docsRoot = path.join(__dirname, '..', '..', 'docs'); // docs文件路径
 
@@ -40,7 +41,6 @@ const readUtils = function () {
   };
 
   this.loadPage = function loadPage(url) {
-    const http = require('https');
     const pm = new Promise((resolve, reject) => {
       http.get(url,
         (res) => {
