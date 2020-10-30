@@ -30,7 +30,7 @@ function formateData(arr) {
 issue.open({
     owner: 'grofis',
     repo: 'ActionHook',
-    title: `Hacker News Daily Top 10 @${new Date(date).toISOString().slice(0, 10)}`,
+    title: `Hacker News Daily Top 10 @${new Date().toISOString().slice(0, 10)}`,
     body: contents
   }).then((res)=>{
     const issueNumber = res.data.number;
