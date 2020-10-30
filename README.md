@@ -10,7 +10,8 @@ save actions and hook files.
 [nodejs导出包](https://blog.csdn.net/jaketseng/article/details/77865375)
 
 
-X-Authorization: 'token 你的token'
-        User-Agent: 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 SE 2.X MetaSr 1.0'
-        content-type: 'application/json'
-        Referer:'http://fanyi.caiyunapp.com/'
+#### 为什么添加到issue
+1. 因为代码从github action无法提交到master分支，即使提交非代码的输出文件太多
+2. 尝试过提交到Tag, 但tag也有问题。需要搞清楚Branch、Tag、Release及github action之间的关系
+
+#### 添加lint 格式化代码

@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "baiduPush": "node utils/baiduPush.js https://www.grofis.com && bash baiduPush.sh",
-    "hnSpider":"node utils/hnSpider.js"
+    "baiduTest": "node utils/baiduPush.js https://www.grofis.com",
+    "hnSpider": "node utils/hnSpider.js",
+    "lint": "eslint --fix --ext .js,.jsx ."
   },
   "repository": {
     "type": "git",
@@ -32,5 +34,10 @@
     "gray-matter": "^4.0.2",
     "moment": "^2.29.1",
     "timeago.js": "^4.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1"
   }
 }
