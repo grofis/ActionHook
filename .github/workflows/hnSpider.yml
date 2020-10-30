@@ -21,16 +21,11 @@ jobs:
           ref: ${{ github.head_ref }}
       - name: 'Run hnSpider'  # 步骤二，执行sh命令文件
         run: npm install && npm run hnSpider # 运行目录是仓库根目录
-      - name: 'Commit files'
-        run: |
-          git config --local user.email "1216226589@qq.com"
-          git config --local user.name "GitHub Action"
-          git rm -r --cached . 
-          git add --all 
-          git commit -m "Add changes" -a
-      - name: 'Push changes'
-        uses: ad-m/github-push-action@master
+      - name: 'Add Issue'
+        uses: JasonEtco/create-an-issue@v2
         with:
-          github_token: ${{ secrets.clientSecret }}
-          branch: main
+          assignees: JasonEtco, octocat
+          milestone: 1
+        env:
+          GITHUB_TOKEN: ${{ secrets.clientSecret }}
        
