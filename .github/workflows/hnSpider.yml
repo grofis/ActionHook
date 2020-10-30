@@ -22,13 +22,14 @@ jobs:
       - name: 'Run hnSpider'  # 步骤二，执行sh命令文件
         run: npm install && npm run hnSpider # 运行目录是仓库根目录
 
-      - name: Commit files
+      - name: 'Commit files'
       run: |
         git config --local user.email "1216226589@qq.com"
         git config --local user.name "GitHub Action"
         git commit -m "Add changes" -a
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.clientSecret }}
+        
+      - name: 'Push changes'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.clientSecret }}
        
