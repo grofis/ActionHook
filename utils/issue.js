@@ -5,6 +5,7 @@ let secrets = {};
 
 try {
 	secrets = require('../secret.js');
+	console.log('secrets=>'+JSON.stringify(secrets))
 } catch (error) {
 	console.log('no secret json, on github action');
 }

@@ -21,11 +21,7 @@ jobs:
           ref: ${{ github.head_ref }}
       - name: 'Run hnSpider'  # 步骤二，执行sh命令文件
         run: npm install && npm run hnSpider # 运行目录是仓库根目录
-      - name: 'Add Issue'
-        uses: JasonEtco/create-an-issue@v2
-        with:
-          assignees: JasonEtco, octocat
-          milestone: 1
         env:
-          GITHUB_TOKEN: ${{ secrets.clientSecret }}
-       
+        clientSecret: ${{ secrets.clientSecret }}
+        privateKey: ${{ secrets.privateKey }}
+     
