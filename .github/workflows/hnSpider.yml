@@ -15,6 +15,9 @@ jobs:
   bot:
     runs-on: ubuntu-latest # 运行环境为最新版的Ubuntu
     steps:
+      env:
+        clientSecret: ${{ secrets.clientSecret }}
+        privateKey: ${{ secrets.privateKey }}
       - name: 'Checkout codes' # 步骤一，获取仓库代码
         uses: actions/checkout@v2
         with:
