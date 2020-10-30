@@ -24,7 +24,7 @@ function formateData(arr) {
       // 会有延迟 所以多等一下
       const contents = arr.map((des, j) =>{
       // console.log(j+" "+des.text+`\r\n`)
-        return `${j + 1}. ${des.text} \r\n</br> ${des.title} \r\n</br> 好奇指数 ${des.points}点  由 ${des.author} ${des.created_at}发布 | 获得 ${des.num_comments}评论 \r\n</br>`
+        return `${j + 1}. ${des.text} \r\n</br> ${des.title} \r\n</br> 好奇指数 ${des.points}点  由 ${des.author} ${des.created_at}发布 | 获得 ${des.num_comments}评论 \r\n</br>\r\n`
       }).join(''); 
 
 issue.open({
@@ -46,6 +46,7 @@ issue.open({
 
 
        file.writeData(contents);
+       file.writeData(`${time.getDate()}==>\r\n${titles.join('\r\n')}`);
        file.logData(`${time.getDate()}==>\r\n${titles.join('\r\n')}`);
     }
   });
