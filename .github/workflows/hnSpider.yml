@@ -22,6 +22,6 @@ jobs:
       - name: 'Run hnSpider'  # 步骤二，执行sh命令文件
         run: npm install && npm run hnSpider # 运行目录是仓库根目录
         env:
-        clientSecret: ${{ secrets.clientSecret }}
-        privateKey: ${{ secrets.privateKey }}
+          clientSecret: ${{ secrets.clientSecret }}
+          privateKey: ${{ secrets.privateKey }}
      
