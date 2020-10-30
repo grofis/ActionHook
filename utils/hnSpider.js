@@ -26,23 +26,8 @@ function formateData(arr) {
 			// console.log(j+" "+des.text+`\r\n`)
 				`${j + 1}. ${des.text} \r\n\r\n ${des.title} \r\n\r\n 好奇指数 ${des.points}点  由 ${des.author} ${des.created_at}发布 | 获得 ${des.num_comments}评论 \r\n\r\n`).join('');
 
-			issue.open({
-				owner: 'grofis',
-				repo: 'ActionHook',
-				title: `Hacker News Daily Top 10 @${new Date().toISOString().slice(0, 10)}`,
-				body: contents,
-			}).then((res) => {
-				const issueNumber = res.data.number;
-
-				issue.lock({
-					owner: 'grofis',
-					repo: 'ActionHook',
-					issueNumber,
-				});
-			});
-
-			file.appendData(contents);
-			file.appendData(`${time.getDate()}==>\r\n${titles.join('\r\n')}`);
+			file.writeData(contents);
+			// file.appendData(`${time.getDate()}==>\r\n${titles.join('\r\n')}`);
 			file.logData(`${time.getDate()}==>\r\n${titles.join('\r\n')}`);
 		}
 	});
