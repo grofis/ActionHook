@@ -45,8 +45,8 @@ issue.open({
   
 
 
-      // file.writeData(contents);
-      // file.logData(`${time.getDate()}==>\r\n${titles.join('\r\n')}`);
+       file.writeData(contents);
+       file.logData(`${time.getDate()}==>\r\n${titles.join('\r\n')}`);
     }
   });
 }
