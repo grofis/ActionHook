@@ -31,6 +31,6 @@ jobs:
       - name: commit
         run: |
           # Stage the file, commit and push
-          git add
+          git add <file>...
           git commit -m "new date commit"
           git push origin master
