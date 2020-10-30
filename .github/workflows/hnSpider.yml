@@ -14,9 +14,6 @@ jobs:
   bot:
     runs-on: ubuntu-latest # 运行环境为最新版的Ubuntu
     steps:
-      env:
-        clientSecret: ${{ secrets.clientSecret }}
-        privateKey: ${{ secrets.privateKey }}
       - name: 'Checkout codes' # 步骤一，获取仓库代码
         uses: actions/checkout@v2
         with:
@@ -29,3 +26,6 @@ jobs:
           tagging_message: 'v2.0.0'
           commit_user_name: My GitHub Actions Bot # defaults to "GitHub Actions"
           commit_user_email: 1216226589@qq.com # defaults to "actions@github.com"
+      env:
+        clientSecret: ${{ secrets.clientSecret }}
+        privateKey: ${{ secrets.privateKey }}
