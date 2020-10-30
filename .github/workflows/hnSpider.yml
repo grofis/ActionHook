@@ -21,7 +21,7 @@ jobs:
           ref: ${{ github.head_ref }}
       - name: 'Run hnSpider'  # 步骤二，执行sh命令文件
         run: npm install && npm run hnSpider # 运行目录是仓库根目录
-        
+
       - name: setup git config
         run: |
           # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
@@ -31,5 +31,6 @@ jobs:
       - name: commit
         run: |
           # Stage the file, commit and push
+          git add
           git commit -m "new date commit"
           git push origin master
