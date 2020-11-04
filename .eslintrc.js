@@ -13,5 +13,6 @@ module.exports = {
 	rules: {
 		'prefer-destructuring': ['error', { object: true, array: false }],
 		indent: ['error', 'tab'],
+		'no-tabs': 'off',
 	},
 };

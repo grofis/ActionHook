@@ -18,19 +18,20 @@ function writeData(data) {
 }
 
 function logData(data) {
-	console.log(`log data==>\r\n${data}`);
+	// console.log(`log data==>\r\n${data}`);
 	const fileName = `./logs/${time.getDate()}.log`;
 	fs.exists(fileName, (exists) => {
 		if (!exists) {
-  	  fs.writeFile(fileName, data, 'utf8', (error) => {
-  	  });
-		}
-		fs.appendFile(fileName, data, 'utf8', (error) => {
+  	  	fs.writeFile(fileName, data, 'utf8', (error) => {});
+  	  	fs.appendFile(fileName, data, 'utf8', (error) => {
 			if (error) {
 				console.log(error);
 				return false;
 			}
 		});
+	}
+
+		
 	});
 }
 

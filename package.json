@@ -8,6 +8,7 @@
     "baiduPush": "node utils/baiduPush.js https://www.grofis.com && bash baiduPush.sh",
     "baiduTest": "node utils/baiduPush.js https://www.grofis.com",
     "hnSpider": "node utils/hnSpider.js",
+    "ci": "node utils/createIssue.js",
     "lint": "eslint --fix --ext .js,.jsx ."
   },
   "repository": {
@@ -32,9 +33,12 @@
     "axios": "^0.21.0",
     "chalk": "^4.1.0",
     "cheerio": "^1.0.0-rc.3",
+    "encoding": "^0.1.13",
+    "github-create-issue": "^2.0.0",
     "google-translate-api": "^2.3.0",
     "gray-matter": "^4.0.2",
     "moment": "^2.29.1",
+    "octonode": "^0.9.5",
     "timeago.js": "^4.0.2"
   },
   "devDependencies": {

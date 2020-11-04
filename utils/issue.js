@@ -1,57 +1,26 @@
-const { Octokit } = require('@octokit/core');
-const { createAppAuth } = require('@octokit/auth-app');
+const createIssue = require('github-create-issue');
 
-let secrets = {};
-
-try {
-	secrets = require('../secret.js');
-	console.log('secrets=>'+JSON.stringify(secrets))
-} catch (error) {
-	console.log('no secret json, on github action');
+function clbk(error, issue, info) {
+	// Check for rate limit information...
+	if (info) {
+		console.error('Limit: %d', info.limit);
+		console.error('Remaining: %d', info.remaining);
+		console.error('Reset: %s', (new Date(info.reset * 1000)).toISOString());
+	}
+	console.log(`error:${JSON.stringify(error)}`);
+	if (error) {
+		throw new Error(error.message);
+	}
+	console.log(JSON.stringify(issue));
+	// returns <issue_data>
 }
 
-const octokit = new Octokit({
-	authStrategy: createAppAuth,
-	auth: {
-		appId: 75833,
-		installationId: 11101003,
-		clientId: 'Iv1.8d2f7d117f535668',
-		clientSecret: process.env.clientSecret ? process.env.clientSecret : secrets.clientSecret,
-		privateKey: process.env.privateKey ? process.env.privateKey : secrets.privateKey,
-	},
-});
-
-const open = async ({
-	owner, repo, title, body,
-}) => {
-	try {
-		console.log('opening issue');
-		const res = await octokit.request('POST /repos/{owner}/{repo}/issues', {
-			owner,
-			repo,
-			title,
-			body,
-		});
-		console.log('opened');
-		return res;
-	} catch (error) {
-		console.log(error);
-		throw error;
-	}
-};
-
-const lock = async ({ owner, repo, issueNumber }) => {
-	console.log('locking issue');
-	await octokit.request('PUT /repos/{owner}/{repo}/issues/{issue_number}/lock', {
-		owner,
-		repo,
-		issue_number: issueNumber,
-		lock_reason: 'resolved',
-	});
-	console.log('locked');
-};
-
-module.exports = {
-	open,
-	lock,
+exports.post = function (data) {
+	const opts = {
+		token: 'd5dc6d732ffac0b7e1c5f309046deea06113a1dd',
+		useragent: 'ActionHook',
+		body: data,
+		labels: ['dayly'],
+	};
+	createIssue('grofis/ActionHook', 'Great！.', opts, clbk);
 };

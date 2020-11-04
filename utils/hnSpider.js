@@ -1,6 +1,8 @@
 const axios = require('axios');
 const timeago = require('timeago.js');
 // const trans = require('./translate.js');
+const encoding = require('encoding');
+const github = require('octonode');
 const file = require('./file.js');
 const time = require('./time.js');
 const issue = require('./issue.js');
@@ -9,11 +11,15 @@ function formateData(arr) {
 	// console.log(top10Objs)
 	const titles = [];
 	arr.forEach((obj, i) => {
-		const url = `https://news.ycombinator.com/item?id=${obj.objectID}`;
-		obj.text = `**[${obj.title}](${url})**`;
-		obj.created_at = `${timeago.format(obj.created_at, 'zh_CN')}`;
-		// obj.num_comments = `[${num_comments} comments](https://news.ycombinator.com/item?id=${objectID})`
-		titles.push(`${i}.  ` + `${obj.title}`);
+		let commnetsUrl = `https://news.ycombinator.com/item?id=${obj.objectID}`
+		if(obj.url == null){
+			obj.url = commnetsUrl
+		}
+		obj.text = `**[${obj.title}](${obj.url})**`;
+		obj.created_at = `${timeago.format(obj.created_at, 'zh_CN')}`; // zh_CN
+		obj.author = `[${obj.author}](${commnetsUrl})`
+	    // obj.num_comments = `[${obj.num_comments}](https://news.ycombinator.com/item?id=${obj.objectID})`
+		titles.push(`${i + 1}.  ` + `${obj.title}`);
 
 		// trans.trans(`${title}`, 'zh-CN').then(function(d){
 		// obj.text = `**[${d.text}](${url})**`
@@ -22,10 +28,13 @@ function formateData(arr) {
 		// file.appendData(`${i + 1}. ${d.text} \r\n **[${title}](${url})**\r\n ${points} points by [${author}](https://news.ycombinator.com/user?id=${author}) ${timeago.format(created_at)} | [${num_comments} comments](https://news.ycombinator.com/item?id=${objectID}) \r\n`)
 		if (i == arr.length - 1) {
 			// 会有延迟 所以多等一下
-			const contents = arr.map((des, j) =>
+			const contents = arr.map((des, j) => {
 			// console.log(j+" "+des.text+`\r\n`)
-				`${j + 1}. ${des.text} \r\n\r\n ${des.title} \r\n\r\n 好奇指数 ${des.points}点  由 ${des.author} ${des.created_at}发布 | 获得 ${des.num_comments}评论 \r\n\r\n`).join('');
+				console.log(`${j + 1}. ${des.text} \r\n  ${des.title} \r\n ${des.points}奇 | ${des.author}作 ${des.created_at}前 | ${des.num_comments}评\r\n`);
+				return `${j + 1}. ${des.text} \r\n  ${des.title} \r\n ${des.points}points  by ${des.author} ${des.created_at} |  ${des.num_comments} comments\r\n`;
+			}).join('');
 
+			/*
 			issue.open({
 				owner: 'grofis',
 				repo: 'ActionHook',
@@ -40,10 +49,13 @@ function formateData(arr) {
 					issueNumber,
 				});
 			});
-
+      */
+			issue.post(contents);
 			file.writeData(contents);
 			// file.appendData(`${time.getDate()}==>\r\n${titles.join('\r\n')}`);
-			file.logData(`${time.getDate()}==>\r\n${titles.join('\r\n')}`);
+			file.logData(`${titles.join('\r\n')}`)
+			//file.logData(`${time.getDate()}==>\r\n${titles.join('\r\n')}`);
+			//file.logData(JSON.stringify(arr));
 		}
 	});
 }
@@ -55,9 +67,9 @@ function main() {
 	// file.writeData('contents')
 	// file.logData('time')
 
-	const endTime = Math.round(new Date().getTime() / 1000) - (12 * 60 * 60);
+	const endTime = Math.round(new Date().getTime() / 1000) - (37 * 60 * 60);
 	// 1 hour before start of the date (save missed posts)
-	const startTime = Math.round(new Date().getTime() / 1000) - (24 * 60 * 60);
+	const startTime = Math.round(new Date().getTime() / 1000) - (48 * 60 * 60);
 	const url = `https://hn.algolia.com/api/v1/search?numericFilters=created_at_i>${startTime},created_at_i<${endTime}`;
 	console.log(url);
 
@@ -70,3 +82,25 @@ function main() {
 }
 
 main();
+
+function test() {
+	const client = github.client('d5dc6d732ffac0b7e1c5f309046deea06113a1dd');
+
+	client.get('/user', {}, (err, status, body, headers) => {
+		console.log(body); // json object
+	});
+
+	const ghrepo = client.repo('grofis/ActionHook');
+
+	ghrepo.issue({
+		title: 'Found a bug',
+		body: "I'm having a problem with this.",
+		assignee: 'octocat',
+		milestone: 1,
+		labels: ['Label1', 'Label2'],
+	}, (err, status, body, headers) => {
+		console.log(body); // json object
+	}); // issue
+}
+
+// test();
