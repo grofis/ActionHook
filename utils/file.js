@@ -2,7 +2,7 @@ const fs = require('fs');
 // const path = require('path');
 const time = require('./time');
 
-const name = `./docs/${time.getDate()}.md`;
+const name = `./docs/${time.getFileDate()}.md`;
 
 function writeData(data) {
 	console.log(`write data==>\r\n${data}`);
@@ -19,19 +19,17 @@ function writeData(data) {
 
 function logData(data) {
 	// console.log(`log data==>\r\n${data}`);
-	const fileName = `./logs/${time.getDate()}.log`;
+	const fileName = `./logs/${time.getFileDate()}.log`;
 	fs.exists(fileName, (exists) => {
 		if (!exists) {
   	  	fs.writeFile(fileName, data, 'utf8', (error) => {});
   	  	fs.appendFile(fileName, data, 'utf8', (error) => {
-			if (error) {
-				console.log(error);
-				return false;
-			}
-		});
-	}
-
-		
+				if (error) {
+					console.log(error);
+					return false;
+				}
+			});
+		}
 	});
 }
 

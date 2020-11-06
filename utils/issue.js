@@ -15,12 +15,17 @@ function clbk(error, issue, info) {
 	// returns <issue_data>
 }
 
-exports.post = function (data) {
+exports.post = function (data, title, label) {
+	const text = (title === undefined) ? 'test' : title;
+	const labelName = (title === undefined) ? 'dayly' : label;
 	const opts = {
-		token: 'd5dc6d732ffac0b7e1c5f309046deea06113a1dd',
+		token: '8e0c2e47751d85c6306775f3684ed1e34e6d01a1',
 		useragent: 'ActionHook',
 		body: data,
-		labels: ['dayly'],
+		labels: [labelName],
 	};
-	createIssue('grofis/ActionHook', 'Great！.', opts, clbk);
+	// var opts = {
+	//    	'token': '8e0c2e47751d85c6306775f3684ed1e34e6d01a1'
+	// }
+	createIssue('grofis/ActionHook', text, opts, clbk);
 };

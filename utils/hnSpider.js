@@ -11,13 +11,13 @@ function formateData(arr) {
 	// console.log(top10Objs)
 	const titles = [];
 	arr.forEach((obj, i) => {
-		let commnetsUrl = `https://news.ycombinator.com/item?id=${obj.objectID}`
-		if(obj.url == null){
-			obj.url = commnetsUrl
+		const commnetsUrl = `https://news.ycombinator.com/item?id=${obj.objectID}`;
+		if (obj.url == null) {
+			obj.url = commnetsUrl;
 		}
 		obj.text = `**[${obj.title}](${obj.url})**`;
 		obj.created_at = `${timeago.format(obj.created_at, 'zh_CN')}`; // zh_CN
-		obj.author = `[${obj.author}](${commnetsUrl})`
+		obj.author = `[${obj.author}](${commnetsUrl})`;
 	    // obj.num_comments = `[${obj.num_comments}](https://news.ycombinator.com/item?id=${obj.objectID})`
 		titles.push(`${i + 1}.  ` + `${obj.title}`);
 
@@ -53,9 +53,9 @@ function formateData(arr) {
 			issue.post(contents);
 			file.writeData(contents);
 			// file.appendData(`${time.getDate()}==>\r\n${titles.join('\r\n')}`);
-			file.logData(`${titles.join('\r\n')}`)
-			//file.logData(`${time.getDate()}==>\r\n${titles.join('\r\n')}`);
-			//file.logData(JSON.stringify(arr));
+			file.logData(`${titles.join('\r\n')}`);
+			// file.logData(`${time.getDate()}==>\r\n${titles.join('\r\n')}`);
+			// file.logData(JSON.stringify(arr));
 		}
 	});
 }
@@ -67,9 +67,9 @@ function main() {
 	// file.writeData('contents')
 	// file.logData('time')
 
-	const endTime = Math.round(new Date().getTime() / 1000) - (37 * 60 * 60);
+	const endTime = Math.round(new Date().getTime() / 1000) - (12 * 60 * 60);
 	// 1 hour before start of the date (save missed posts)
-	const startTime = Math.round(new Date().getTime() / 1000) - (48 * 60 * 60);
+	const startTime = Math.round(new Date().getTime() / 1000) - (24 * 60 * 60);
 	const url = `https://hn.algolia.com/api/v1/search?numericFilters=created_at_i>${startTime},created_at_i<${endTime}`;
 	console.log(url);
 
