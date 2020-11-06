@@ -18,8 +18,9 @@ function clbk(error, issue, info) {
 exports.post = function (data, title, label) {
 	const text = (title === undefined) ? 'test' : title;
 	const labelName = (title === undefined) ? 'dayly' : label;
+	const token = process.env.clientSecret ? process.env.clientSecret : secrets.clientSecret;
 	const opts = {
-		token: '8e0c2e47751d85c6306775f3684ed1e34e6d01a1',
+		token: token,
 		useragent: 'ActionHook',
 		body: data,
 		labels: [labelName],
