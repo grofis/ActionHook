@@ -26,6 +26,8 @@ function clbk(error, issue, info) {
 exports.post = function (data, title, label) {
 	const text = (title === undefined) ? 'test' : title;
 	const labelName = (title === undefined) ? 'dayly' : label;
+	console.log('clientSecret:'+JSON.stringify(process.env.clientSecret))
+    console.log('secrets:'+JSON.stringify(secrets.clientSecret))
 	const token = process.env.clientSecret ? process.env.clientSecret : secrets.clientSecret;
 	const opts = {
 		token: token,
