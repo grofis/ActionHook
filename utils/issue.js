@@ -30,7 +30,7 @@ exports.post = function (data, title, label) {
 	console.log('clientSecret:'+JSON.stringify(process.env.clientSecret))
     console.log('secrets:'+JSON.stringify(secrets.clientSecret))
 
-    console.log('secrets:'+JSON.stringify($clientSecret))
+    // console.log('secrets:'+JSON.stringify($clientSecret))
 
 
 	const token = process.env.clientSecret ? process.env.clientSecret : secrets.clientSecret;
