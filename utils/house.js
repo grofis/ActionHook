@@ -2,6 +2,14 @@ const axios = require('axios');
 const issue = require('./issue.js');
 const time = require('./time');
 
+let secrets = {};
+
+try {
+    secrets = require('../secret.js');
+} catch (error) {
+    console.log('no secret json, on github action')
+}
+
 function getData() {
 	const url = 'http://api.huiyuejiagongyu.com/api/v1/shop/index.aspx';
 	console.log(url);
