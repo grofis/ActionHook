@@ -1,5 +1,13 @@
 const createIssue = require('github-create-issue');
 
+let secrets = {};
+
+try {
+    secrets = require('../secret.js');
+} catch (error) {
+    console.log('no secret json, on github action')
+}
+
 function clbk(error, issue, info) {
 	// Check for rate limit information...
 	if (info) {
