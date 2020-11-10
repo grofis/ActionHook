@@ -51,7 +51,7 @@ function formateData(arr) {
 				});
 			});
       */
-      		const title = `House ${time.getTitleHour()}`;
+      		const title = `Hacker News ${time.getTitleHour()}`;
       		const contentTxt = JSON.stringify(contents)+'\n'+ JSON.stringify(titles.join('\r\n'))
 			issue.post(JSON.stringify(contents), title, 'Hacker News');
 			// console.log('contentTxt:'+contentTxt)
