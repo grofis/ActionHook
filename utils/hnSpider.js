@@ -53,11 +53,15 @@ function formateData(arr) {
       */
       		const title = `House ${time.getTitleHour()}`;
       		const contentTxt = JSON.stringify(contents)+'\n'+ JSON.stringify(titles.join('\r\n'))
-			issue.post(contentTxt, title, 'Hacker News');
+			issue.post('contentTxt', title, 'Hacker News');
+			// console.log('contentTxt:'+contentTxt)
 
-			file.writeData(contents);
+			// log打印内容
+			// file.writeData(contents);
+			// file.logData(`${contents} \n${titles.join('\r\n')}`);
+
+
 			// file.appendData(`${time.getDate()}==>\r\n${titles.join('\r\n')}`);
-			file.logData(`${contents} \n${titles.join('\r\n')}`);
 			// file.logData(`${time.getDate()}==>\r\n${titles.join('\r\n')}`);
 			// file.logData(JSON.stringify(arr));
 		}
