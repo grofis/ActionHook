@@ -53,9 +53,10 @@ function formateData(arr) {
       */
       		const title = `Hacker News ${time.getTitleHour()}`;
       		const contentTxt = `${contents} \n${titles.join('\r\n')}`
-      		console.log('test is:'+contentTxt)
+      		console.log('\r\ntype is:'+typeof(contentTxt))
+      		console.log('\r\ntest is:'+contentTxt.toString())
 
-		    issue.post(contentTxt, title, 'Hacker');
+		    issue.post(contentTxt.toString(), title, 'Hacker');
 			// console.log('contentTxt:'+contentTxt)
 
 			// log打印内容
