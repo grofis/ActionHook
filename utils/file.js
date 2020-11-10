@@ -22,14 +22,9 @@ function logData(data) {
 	const fileName = `./logs/${time.getFileDate()}.log`;
 	fs.exists(fileName, (exists) => {
 		if (!exists) {
-  	  	fs.writeFile(fileName, data, 'utf8', (error) => {});
-  	  	fs.appendFile(fileName, data, 'utf8', (error) => {
-				if (error) {
-					console.log(error);
-					return false;
-				}
-			});
-		}
+            fs.writeFile(fileName, data, 'utf8', (error) => {
+            });
+        }
 	});
 }
 

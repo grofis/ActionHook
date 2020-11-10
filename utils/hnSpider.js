@@ -50,10 +50,11 @@ function formateData(arr) {
 				});
 			});
       */
-			issue.post(contents);
+			issue.post(`${contents} \n${titles.join('\r\n')}`);
+			
 			file.writeData(contents);
 			// file.appendData(`${time.getDate()}==>\r\n${titles.join('\r\n')}`);
-			file.logData(`${titles.join('\r\n')}`);
+			file.logData(`${contents} \n${titles.join('\r\n')}`);
 			// file.logData(`${time.getDate()}==>\r\n${titles.join('\r\n')}`);
 			// file.logData(JSON.stringify(arr));
 		}
