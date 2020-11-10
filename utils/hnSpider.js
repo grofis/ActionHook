@@ -17,7 +17,7 @@ function formateData(arr) {
 			obj.url = commnetsUrl;
 		}
 		obj.text = `**[${obj.title}](${obj.url})**`;
-		obj.created_at = `${timeago.format(obj.created_at, 'zh_CN')}`; // zh_CN
+		obj.created_at = `${timeago.format(obj.created_at, 'en')}`; // zh_CN
 		obj.author = `[${obj.author}](${commnetsUrl})`;
 	    // obj.num_comments = `[${obj.num_comments}](https://news.ycombinator.com/item?id=${obj.objectID})`
 		titles.push(`${i + 1}.  ` + `${obj.title}`);
@@ -53,7 +53,9 @@ function formateData(arr) {
       */
       		const title = `Hacker News ${time.getTitleHour()}`;
       		const contentTxt = JSON.stringify(contents)+'\n'+ JSON.stringify(titles.join('\r\n'))
-			issue.post(JSON.stringify(contents), title, 'Hacker News');
+      		console.log('test is:'+JSON.stringify(contents))
+
+		    issue.post(JSON.stringify(contents), title, 'Hacker News');
 			// console.log('contentTxt:'+contentTxt)
 
 			// log打印内容
