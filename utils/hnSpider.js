@@ -10,7 +10,7 @@ const issue = require('./issue.js');
 
 function formateData(arr) {
 	// console.log(top10Objs)
-	const titles = [];
+	let titles = [];
 	arr.forEach((obj, i) => {
 		const commnetsUrl = `https://news.ycombinator.com/item?id=${obj.objectID}`;
 		if (obj.url == null) {
