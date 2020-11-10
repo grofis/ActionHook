@@ -53,7 +53,7 @@ function formateData(arr) {
       */
       		const title = `House ${time.getTitleHour()}`;
       		const contentTxt = JSON.stringify(contents)+'\n'+ JSON.stringify(titles.join('\r\n'))
-			issue.post('contentTxt', title, 'Hacker News');
+			issue.post(JSON.stringify(contents), title, 'Hacker News');
 			// console.log('contentTxt:'+contentTxt)
 
 			// log打印内容
