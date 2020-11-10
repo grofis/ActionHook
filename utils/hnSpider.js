@@ -7,6 +7,7 @@ const file = require('./file.js');
 const time = require('./time.js');
 const issue = require('./issue.js');
 
+
 function formateData(arr) {
 	// console.log(top10Objs)
 	const titles = [];
@@ -50,8 +51,10 @@ function formateData(arr) {
 				});
 			});
       */
-			issue.post(`${contents} \n${titles.join('\r\n')}`);
-			
+      		const title = `House ${time.getTitleHour()}`;
+      		const contentTxt = JSON.stringify(${contents})+'\n'+ JSON.stringify(${titles.join('\r\n')})
+			issue.post(contentTxt, title, 'Hacker News');
+
 			file.writeData(contents);
 			// file.appendData(`${time.getDate()}==>\r\n${titles.join('\r\n')}`);
 			file.logData(`${contents} \n${titles.join('\r\n')}`);
