@@ -10,7 +10,7 @@ const issue = require('./issue.js');
 
 function formateData(arr) {
 	// console.log(top10Objs)
-	let titles = [];
+	const titles = [];
 	arr.forEach((obj, i) => {
 		const commnetsUrl = `https://news.ycombinator.com/item?id=${obj.objectID}`;
 		if (obj.url == null) {
@@ -55,8 +55,8 @@ function formateData(arr) {
       		const contentTxt = `${contents} \n${titles.join('\r\n')}`
       		console.log('\r\ntype is:'+typeof(contentTxt))
 
-      		titles = titles.join('\r\n');
-      		let text = `${titles.join('\r\n').toString()}`
+      		let text = titles.join('\r\n');
+      		//let text = `${titles.join('\r\n').toString()}`
       		console.log('\r\ntest is:'+text)
 
 		    issue.post(titles, title, 'Hacker');
