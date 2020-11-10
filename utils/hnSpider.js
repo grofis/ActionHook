@@ -56,7 +56,7 @@ function formateData(arr) {
       		console.log('\r\ntype is:'+typeof(contentTxt))
       		console.log('\r\ntest is:'+contentTxt.toString())
 
-		    issue.post(contentTxt.toString(), title, 'Hacker');
+		    issue.post(`${titles.join('\r\n')}`, title, 'Hacker');
 			// console.log('contentTxt:'+contentTxt)
 
 			// log打印内容
