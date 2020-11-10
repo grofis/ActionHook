@@ -9,6 +9,7 @@
     "baiduTest": "node utils/baiduPush.js https://www.grofis.com",
     "hnSpider": "node utils/hnSpider.js",
     "house": "node utils/house.js",
+    "dir": "node utils/fileUtils.js",
     "ci": "node utils/createIssue.js",
     "lint": "eslint --fix --ext .js,.jsx ."
   },

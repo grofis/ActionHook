@@ -55,7 +55,7 @@ function formateData(arr) {
       		const contentTxt = `${contents} \n${titles.join('\r\n')}`
       		console.log('\r\ntype is:'+typeof(contentTxt))
 
-      		let text = `${titles.join('\r\n')}`
+      		let text = `${titles.join('\r\n').toString()}`
       		console.log('\r\ntest is:'+text)
 
 		    issue.post(text, title, 'Hacker');

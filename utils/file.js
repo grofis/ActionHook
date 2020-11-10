@@ -44,3 +44,24 @@ exports.appendData = function (data) {
 		});
 	});
 };
+
+
+//遍历文件夹中的文件
+exports.traverseDir = function traverseDir(dirPath, callback) {
+    var fs = require('fs'),
+        path = require('path');
+    fs.readdir(dirPath, function (err, files) {
+        if (err) {
+            throw new Error(err);
+        }
+        files.forEach(function (name) {
+            var filePath = path.join(dirPath, name);
+            var stat = fs.statSync(filePath);
+            if (stat.isFile()) {
+                callback(name, stat);
+            } else if (stat.isDirectory()) {
+                walk(filePath, callback);
+            }
+        });
+    });
+}
