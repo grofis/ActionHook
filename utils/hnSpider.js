@@ -56,7 +56,7 @@ function formateData(arr) {
       		console.log('\r\ntype is:'+typeof(contentTxt))
 
       		let text = titles.join('\r\n');
-      		text = text.toString()+''
+      		text = JSON.stringify(text);
       		//let text = `${titles.join('\r\n').toString()}`
       		console.log('\r\ntest is:'+text)
 
