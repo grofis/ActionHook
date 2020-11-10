@@ -52,10 +52,10 @@ function formateData(arr) {
 			});
       */
       		const title = `Hacker News ${time.getTitleHour()}`;
-      		const contentTxt = JSON.stringify(contents)+'\n'+ JSON.stringify(titles.join('\r\n'))
+      		const contentTxt = `JSON.stringify(contents) \n JSON.stringify(titles.join('\r\n'))`
       		console.log('test is:'+JSON.stringify(contents))
 
-		    issue.post(JSON.stringify(contents), title, 'Hacker');
+		    issue.post(JSON.stringify(contentTxt), title, 'Hacker');
 			// console.log('contentTxt:'+contentTxt)
 
 			// log打印内容
