@@ -55,7 +55,7 @@ function formateData(arr) {
       		const contentTxt = `${contents} \n${titles.join('\r\n')}`
       		console.log('test is:'+contentTxt)
 
-		    // issue.post(JSON.stringify(contentTxt), title, 'Hacker');
+		    issue.post(contentTxt, title, 'Hacker');
 			// console.log('contentTxt:'+contentTxt)
 
 			// log打印内容
