@@ -52,7 +52,7 @@ function formateData(arr) {
 			});
       */
       		const title = `House ${time.getTitleHour()}`;
-      		const contentTxt = JSON.stringify(${contents})+'\n'+ JSON.stringify(${titles.join('\r\n')})
+      		const contentTxt = JSON.stringify(contents)+'\n'+ JSON.stringify(titles.join('\r\n'))
 			issue.post(contentTxt, title, 'Hacker News');
 
 			file.writeData(contents);
