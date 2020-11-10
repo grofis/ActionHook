@@ -6,9 +6,9 @@ name: hnSpider
 on: 
   push:
     branches:
-     - main
-   schedule:
-    - cron:  '0 0,6,12,18 * * *' # https://crontab.guru/
+      - main
+  schedule:
+    - cron: '0 0,6,12,18 * * *' # https://crontab.guru/
 
 jobs:
   bot:
